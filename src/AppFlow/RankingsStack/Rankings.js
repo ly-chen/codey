@@ -7,6 +7,7 @@ import {
     View,
     Image,
 } from 'react-native'
+import GameBar from '../../components/GameBar'
 import { SafeAreaView } from 'react-navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faChess, faUsers, faGlobe } from '@fortawesome/free-solid-svg-icons'
@@ -33,6 +34,9 @@ export default class Rankings extends React.Component {
                     <Text style={styles.barText}>Friends</Text>
                 </View>
                 <View style={styles.topBar}>
+                    <GameBar height={'28%'} />
+                    <GameBar height={'28%'} />
+                    <GameBar height={'28%'} />
                 </View>
                 <View style={styles.label}>
                     <FontAwesomeIcon
@@ -43,6 +47,9 @@ export default class Rankings extends React.Component {
                     <Text style={styles.barText}>Global</Text>
                 </View>
                 <View style={styles.topBar}>
+                    <GameBar height={'28%'} />
+                    <GameBar height={'28%'} />
+                    <GameBar height={'28%'} />
                 </View>
             </SafeAreaView >
         )
