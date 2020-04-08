@@ -1,114 +1,147 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from 'react'
+import { StyleSheet, Platform, Image, Text, View } from 'react-native'
+import { createSwitchNavigator, createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCode, faUserAstronaut, faChess } from '@fortawesome/free-solid-svg-icons'
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+//AuthStack
+import Loading from './src/AuthFlow/Loading'
+import Welcome from './src/AuthFlow/Welcome'
+import Signin from './src/AuthFlow/Signin'
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//AppStack
+//IndexStack
+import Index from './src/AppFlow/IndexStack/Index'
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+//LeaderboardStack
+import Rankings from './src/AppFlow/RankingsStack/Rankings'
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+//ProfileStack
+import Profile from './src/AppFlow/ProfileStack/Profile'
 
-export default App;
+const config = {
+  defaultNavigationOptions: {
+    headerShown: false,
+    headerStyle: {
+      backgroundColor: '#1E1E1E'
+    },
+    headerTitleStyle: {
+      color: '#4DC6AE'
+    },
+    headerTintColor: '#4DC6AE',
+  }
+}
+
+const IndexStack = createStackNavigator(
+  {
+    Index,
+  },
+  config
+)
+
+const RankingsStack = createStackNavigator(
+  {
+    Rankings,
+  },
+  config
+)
+
+const ProfileStack = createStackNavigator(
+  {
+    Profile
+  },
+  config
+)
+
+const AppStack = createBottomTabNavigator(
+  {
+    '/index': {
+      screen: IndexStack,
+      navigationOptions: {
+        tabBarIcon: ({ focused }) => {
+          return <FontAwesomeIcon
+            icon={faCode}
+            size={25}
+            style={focused ? { color: '#4DC6AE' } : { color: '#CCCCCC' }}
+          />
+        }
+      }
+    },
+    '/rankings': {
+      screen: RankingsStack,
+      navigationOptions: {
+        tabBarIcon: ({ focused }) => {
+          return <FontAwesomeIcon
+            icon={faChess}
+            size={25}
+            style={focused ? { color: '#4DC6AE' } : { color: '#CCCCCC' }}
+          />
+        }
+      }
+    },
+    '/user': {
+      screen: ProfileStack,
+      navigationOptions: {
+        tabBarIcon: ({ focused }) => {
+          return <FontAwesomeIcon
+            icon={faUserAstronaut}
+            size={25}
+            style={focused ? { color: '#4DC6AE' } : { color: '#CCCCCC' }}
+          />
+        }
+      }
+    }
+  },
+  {
+    defaultNavigationOptions: {
+      tabBarOptions: {
+        activeTintColor: '#4DC6AE',
+        inactiveTintColor: '#CCCCCC',
+        style: {
+          height: 60,
+          backgroundColor: '#1E1E1E'
+        }
+      }
+    }
+  })
+
+const AuthStack = createStackNavigator(
+  {
+    Welcome: {
+      screen: Welcome,
+      navigationOptions: {
+        headerShown: false,
+      }
+    },
+    Signin: {
+      screen: Signin,
+      navigationOptions: {
+        headerShown: false,
+      }
+    }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#121212'
+      },
+      headerBackTitle: ' ',
+      headerTitleStyle: {
+        color: '#EEEEEE'
+      }
+    }
+  })
+
+export default createAppContainer(createSwitchNavigator(
+  {
+    Loading,
+    App: AppStack,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'Loading'
+  }
+))
