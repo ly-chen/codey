@@ -59,7 +59,7 @@ export default class Index extends React.Component {
                             size={25}
                             style={{ color: '#4DC6AE' }}
                         />
-                        <Text style={{ ...styles.barText, color: '#4DC6AE' }}>Your Move</Text>
+                        <Text style={styles.barText}>Your Move</Text>
                     </View>
                     <View style={{ ...styles.topBar, flexDirection: 'column', justifyContent: 'center', borderTopWidth: 20, borderTopColor: '#4DC6AE', marginTop: 10, }}>
                         <GameBar />
@@ -72,7 +72,7 @@ export default class Index extends React.Component {
                             size={25}
                             style={{ color: '#B23951' }}
                         />
-                        <Text style={{ ...styles.barText, color: '#B23951' }}>Their Move</Text>
+                        <Text style={styles.barText}>Their Move</Text>
                     </View>
                     <View style={{ ...styles.topBar, flexDirection: 'column', justifyContent: 'center', borderTopWidth: 20, borderTopColor: '#B23951', marginTop: 10, marginBottom: 20 }}>
                         <GameBar />

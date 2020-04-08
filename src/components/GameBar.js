@@ -15,7 +15,7 @@ const GameBar = () => {
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ width: 50, height: 50, borderRadius: 50, backgroundColor: '#121212' }}>
                 </View>
-                <Text style={{ fontSize: 20, paddingLeft: 10, }}>username</Text>
+                <Text style={{ fontSize: 18, fontWeight: '600', paddingLeft: 10, color: '#eeeeee' }}>@username</Text>
             </View>
         </View>
     )
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderRadius: 10,
-        backgroundColor: '#CCCCCC',
+        backgroundColor: '#444444',
         height: 70,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 5 },

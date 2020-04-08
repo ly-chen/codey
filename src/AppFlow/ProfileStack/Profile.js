@@ -6,10 +6,11 @@ import {
     Text,
     View,
     Image,
+    ScrollView
 } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
+import { faUserAstronaut, faAddressBook, faTools, faHistory } from '@fortawesome/free-solid-svg-icons'
 
 export default class Profile extends React.Component {
 
@@ -24,8 +25,36 @@ export default class Profile extends React.Component {
                     />
                     <Text style={styles.headerText}> </Text>
                 </View>
-                <View style={styles.topBar}>
-                </View>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={styles.topBar}>
+                    </View>
+                    <View style={{ marginVertical: 10, flexDirection: 'row', width: '100%', justifyContent: "space-evenly" }}>
+                        <View style={{ ...styles.topBar, height: null, borderTopWidth: 0, width: null, borderRadius: 50, padding: 20, }}>
+                            <FontAwesomeIcon
+                                icon={faAddressBook}
+                                size={40}
+                                style={{ color: '#4DC6AE' }}
+                            />
+                        </View>
+                        <View style={{ ...styles.topBar, height: null, borderTopWidth: 0, width: null, borderRadius: 50, padding: 20, }}>
+                            <FontAwesomeIcon
+                                icon={faTools}
+                                size={40}
+                                style={{ color: '#4DC6AE' }}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.label}>
+                        <FontAwesomeIcon
+                            icon={faHistory}
+                            size={25}
+                            style={{ color: '#4DC6AE' }}
+                        />
+                        <Text style={styles.barText}>History</Text>
+                    </View>
+                    <View style={styles.topBar}>
+                    </View>
+                </ScrollView>
             </SafeAreaView>
         )
     }
@@ -53,7 +82,7 @@ const styles = StyleSheet.create({
         color: '#4DC6AE'
     },
     topBar: {
-        height: '40%',
+        height: 300,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -61,6 +90,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
         padding: 10,
         borderRadius: 10,
+        borderTopWidth: 20,
+        borderTopColor: '#4DC6AE',
         backgroundColor: '#333333',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 5 },
@@ -68,27 +99,16 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         elevation: 5
     },
-    loginText: {
-        color: '#121212',
-        fontSize: 20,
+    barText: {
+        color: '#EEEEEE',
+        paddingLeft: 7,
+        fontSize: 18,
     },
-    text: {
-        color: '#4DC6AE',
-        fontSize: 20,
-    },
-    loginButton: {
+    label: {
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-start',
+        flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#4DC6AE',
-        padding: 20,
-        marginVertical: 20,
-        borderRadius: 50
-    },
-    button: {
-        alignItems: 'center',
-        padding: 20,
-        marginVertical: 20,
-        borderColor: '#4DC6AE',
-        borderWidth: 1,
-        borderRadius: 50
+        paddingTop: 25,
     },
 })
