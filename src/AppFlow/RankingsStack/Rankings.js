@@ -17,6 +17,7 @@ export default class Rankings extends React.Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+
                 <View style={styles.headerStyle}>
                     <FontAwesomeIcon
                         icon={faChess}
@@ -25,6 +26,9 @@ export default class Rankings extends React.Component {
                     />
                     <Text style={styles.headerText}> </Text>
                 </View>
+
+
+                {/* Friends Leaderboard */}
                 <View style={{ ...styles.label, paddingTop: 20 }}>
                     <FontAwesomeIcon
                         icon={faUsers}
@@ -38,6 +42,9 @@ export default class Rankings extends React.Component {
                     <GameBar height={'28%'} />
                     <GameBar height={'28%'} />
                 </View>
+
+
+                {/* Global Leaderboard */}
                 <View style={styles.label}>
                     <FontAwesomeIcon
                         icon={faGlobe}
@@ -51,6 +58,7 @@ export default class Rankings extends React.Component {
                     <GameBar height={'28%'} />
                     <GameBar height={'28%'} />
                 </View>
+
             </SafeAreaView >
         )
     }

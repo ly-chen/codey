@@ -15,6 +15,7 @@ import Signin from './src/AuthFlow/Signin'
 //AppStack
 //IndexStack
 import Index from './src/AppFlow/IndexStack/Index'
+import NewMatch from './src/AppFlow/IndexStack/NewMatch'
 
 //LeaderboardStack
 import Rankings from './src/AppFlow/RankingsStack/Rankings'
@@ -38,6 +39,7 @@ const config = {
 const IndexStack = createStackNavigator(
   {
     Index,
+    NewMatch,
   },
   config
 )
@@ -107,6 +109,27 @@ const AppStack = createBottomTabNavigator(
       }
     }
   })
+
+/*const GameSwitch = createSwitchNavigator(
+  {
+    NewMatch: {
+      screen: NewMatch,
+      navigationOptions: {
+        headerShown: false,
+      }
+    }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#121212'
+      },
+      headerBackTitle: ' ',
+      headerTitleStyle: {
+        color: '#EEEEEE'
+      }
+    }
+  })*/
 
 const AuthStack = createStackNavigator(
   {

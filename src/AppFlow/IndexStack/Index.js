@@ -11,13 +11,15 @@ import {
 import GameBar from '../../components/GameBar'
 import { SafeAreaView } from 'react-navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCode, faBolt, faPlay, faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCode, faBolt, faPlay, faPlayCircle, faPauseCircle, faSave } from '@fortawesome/free-solid-svg-icons'
 
 export default class Index extends React.Component {
 
     render() {
         return (
             <SafeAreaView style={styles.container}>
+
+                {/* Manual Header */}
                 <View style={styles.headerStyle}>
                     <FontAwesomeIcon
                         icon={faCode}
@@ -26,6 +28,8 @@ export default class Index extends React.Component {
                     />
                     <Text style={styles.headerText}> </Text>
                 </View>
+
+                {/* Status Bar */}
                 <View style={styles.topBar}>
                     <View style={{ flexDirection: "row", alignItems: 'center' }}>
                         <Text style={{ fontSize: 20, color: '#ffffff', fontWeight: "bold" }}>5</Text>
@@ -41,17 +45,25 @@ export default class Index extends React.Component {
                         <Text style={styles.barText}>1</Text>
                     </View>
                     <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Text style={{ fontSize: 20, color: '#4DC6AE', fontWeight: "bold" }}>ELO</Text>
-                        <Text style={styles.barText}>1200</Text>
+                        <FontAwesomeIcon
+                            icon={faSave}
+                            size={20}
+                            style={{ color: '#F6B301' }}
+                        />
+                        <Text style={styles.barText}>x50</Text>
                     </View>
                 </View>
-                <View style={{ ...styles.topBar, justifyContent: 'center', backgroundColor: '#4DC6AE', marginBottom: 10, }}>
+
+                {/* Play Button */}
+                <TouchableOpacity style={{ ...styles.topBar, justifyContent: 'center', backgroundColor: '#4DC6AE', marginBottom: 10, }} onPress={() => this.props.navigation.navigate('NewMatch')}>
                     <FontAwesomeIcon
                         icon={faPlay}
                         size={30}
                         style={{ color: '#1E1E1E' }}
                     />
-                </View>
+                </TouchableOpacity>
+
+                {/* Active Games */}
                 <ScrollView showsVerticalScrollIndicator={false} style={{ width: '100%' }}>
                     <View style={styles.label}>
                         <FontAwesomeIcon

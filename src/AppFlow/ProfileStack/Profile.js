@@ -10,13 +10,15 @@ import {
 } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserAstronaut, faAddressBook, faTools, faHistory } from '@fortawesome/free-solid-svg-icons'
+import { faUserAstronaut, faAddressBook, faTools, faHistory, faRobot, faCodeBranch, faPeopleArrows, faLaptopMedical, faNetworkWired } from '@fortawesome/free-solid-svg-icons'
 
 export default class Profile extends React.Component {
 
     render() {
         return (
             <SafeAreaView style={styles.container}>
+
+
                 <View style={styles.headerStyle}>
                     <FontAwesomeIcon
                         icon={faUserAstronaut}
@@ -25,9 +27,109 @@ export default class Profile extends React.Component {
                     />
                     <Text style={styles.headerText}> </Text>
                 </View>
+
+
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <View style={styles.topBar}>
+
+                    {/* User Profile */}
+                    <View style={{ ...styles.topBar, flexDirection: 'column', justifyContent: 'flex-start' }}>
+
+                        {/*User*/}
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <View style={{ ...styles.topBar, height: null, borderTopWidth: 0, width: null, borderRadius: 50, padding: 20, marginRight: 30, }}>
+                                <FontAwesomeIcon
+                                    icon={faUserAstronaut}
+                                    size={40}
+                                    style={{ color: '#4DC6AE' }}
+                                />
+                            </View>
+                            <View style={{ marginTop: 20 }}>
+                                <Text style={{
+                                    fontSize: 25,
+                                    color: '#4DC6AE',
+                                    fontWeight: 'bold'
+                                }}>
+                                    @username
+                                </Text>
+                                <Text style={{
+                                    fontSize: 25,
+                                    color: '#C485BF',
+                                }}>
+                                    Lvl. <Text style={{ color: '#CCCCCC' }}>1</Text>
+                                </Text>
+                            </View>
+                        </View>
+
+                        {/* ELOs */}
+                        <View style={{
+                            width: '100%', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', position: 'absolute', bottom: 20,
+                        }}>
+                            <View style={{ alignItems: 'center' }}>
+                                <FontAwesomeIcon
+                                    icon={faRobot}
+                                    size={40}
+                                    style={{ color: '#4DC6AE' }
+                                    }
+                                />
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: '#fff',
+                                }}>1200</Text>
+                            </View>
+
+                            <View style={{ alignItems: 'center' }}>
+                                <FontAwesomeIcon
+                                    icon={faCodeBranch}
+                                    size={40}
+                                    style={{ color: '#4DC6AE' }
+                                    }
+                                />
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: '#fff',
+                                }}>1200</Text>
+                            </View>
+                            <View style={{ alignItems: 'center' }}>
+                                <FontAwesomeIcon
+                                    icon={faPeopleArrows}
+                                    size={40}
+                                    style={{ color: '#4DC6AE' }
+                                    }
+                                />
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: '#fff',
+                                }}>n/a</Text>
+                            </View>
+                            <View style={{ alignItems: 'center' }}>
+                                <FontAwesomeIcon
+                                    icon={faLaptopMedical}
+                                    size={40}
+                                    style={{ color: '#4DC6AE' }
+                                    }
+                                />
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: '#ffff',
+                                }}>n/a</Text>
+                            </View>
+                            <View style={{ alignItems: 'center' }}>
+                                <FontAwesomeIcon
+                                    icon={faNetworkWired}
+                                    size={40}
+                                    style={{ color: '#4DC6AE' }
+                                    }
+                                />
+                                <Text style={{
+                                    fontSize: 18,
+                                    color: '#fff',
+                                }}>n/a</Text>
+                            </View>
+                        </View>
                     </View>
+
+
+                    {/* Friends + Settings */}
                     <View style={{ marginVertical: 10, flexDirection: 'row', width: '100%', justifyContent: "space-evenly" }}>
                         <View style={{ ...styles.topBar, height: null, borderTopWidth: 0, width: null, borderRadius: 50, padding: 20, }}>
                             <FontAwesomeIcon
@@ -36,6 +138,7 @@ export default class Profile extends React.Component {
                                 style={{ color: '#4DC6AE' }}
                             />
                         </View>
+
                         <View style={{ ...styles.topBar, height: null, borderTopWidth: 0, width: null, borderRadius: 50, padding: 20, }}>
                             <FontAwesomeIcon
                                 icon={faTools}
@@ -44,6 +147,8 @@ export default class Profile extends React.Component {
                             />
                         </View>
                     </View>
+
+
                     <View style={styles.label}>
                         <FontAwesomeIcon
                             icon={faHistory}
@@ -52,8 +157,9 @@ export default class Profile extends React.Component {
                         />
                         <Text style={styles.barText}>History</Text>
                     </View>
-                    <View style={styles.topBar}>
+                    <View style={{ ...styles.topBar, marginBottom: 20 }}>
                     </View>
+
                 </ScrollView>
             </SafeAreaView>
         )
@@ -82,7 +188,7 @@ const styles = StyleSheet.create({
         color: '#4DC6AE'
     },
     topBar: {
-        height: 300,
+        height: 250,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

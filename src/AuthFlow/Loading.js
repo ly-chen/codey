@@ -9,9 +9,6 @@ export default class Loading extends React.Component {
         } else {
             this.props.navigation.navigate('Welcome')
         }
-        /*auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user ? 'Main' : 'Welcome')
-        })*/
     }
 
     render() {
