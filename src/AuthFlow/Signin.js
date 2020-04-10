@@ -10,7 +10,7 @@ export default class Signin extends React.Component {
         Keyboard.dismiss()
         auth()
             .signInWithEmailAndPassword(email, password)
-            .then(() => this.props.navigation.navigate('Home'))
+            .then(() => this.props.navigation.navigate('Index'))
             .catch(error => this.setState({ errorMessage: error.message }))
     }
     render() {

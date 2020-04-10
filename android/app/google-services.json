@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "940332888587",
+    "firebase_url": "https://codey-3c982.firebaseio.com",
+    "project_id": "codey-3c982",
+    "storage_bucket": "codey-3c982.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940332888587:android:de4be079b663e263d8cd0e",
+        "android_client_info": {
+          "package_name": "com.codey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940332888587-e4dbln79pguc6p1i4dk8ukkcuj7chj58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codey",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "940332888587-il6oi6fo1guh4srsett72voa7q3i8i63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEAvRhvQtZ4Py2TTcozkJttul5HXryf8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940332888587-il6oi6fo1guh4srsett72voa7q3i8i63.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "940332888587-k2dhb9j79me38vaplh9lgtjgvhlosqf1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.codey"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
