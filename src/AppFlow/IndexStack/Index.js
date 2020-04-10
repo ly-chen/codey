@@ -128,9 +128,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#333333',
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 5 },
+        shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.8,
-        shadowRadius: 5,
+        shadowRadius: 4,
         elevation: 5
     },
     barText: {
